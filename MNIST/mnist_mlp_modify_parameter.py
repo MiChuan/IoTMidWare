@@ -1,12 +1,8 @@
 # -*- coding: UTF-8 -*-
-'''Trains a simple deep NN on the MNIST dataset.
-Gets to 98.40% test accuracy after 20 epochs
-(there is *a lot* of margin for parameter tuning).
-2 seconds per epoch on a K520 GPU.
+'''
 在MNIST数据集上训练一个简单的深度神经网络。
-在20轮迭代后获得了 98.40% 的测试准确率
-(还有很多参数调优的余地)。
-在 K520 GPU上，每轮迭代 2 秒。
+从本地加载训练和测试npz包
+收集训练的准确度和误差，进行可视化
 '''
 
 from __future__ import print_function

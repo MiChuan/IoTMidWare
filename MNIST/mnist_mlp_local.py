@@ -1,12 +1,8 @@
 # -*- coding: UTF-8 -*-
-'''Trains a simple deep NN on the MNIST dataset.
-Gets to 98.40% test accuracy after 20 epochs
-(there is *a lot* of margin for parameter tuning).
-2 seconds per epoch on a K520 GPU.
+'''
 在MNIST数据集上训练一个简单的深度神经网络。
-在20轮迭代后获得了 98.40% 的测试准确率
-(还有很多参数调优的余地)。
-在 K520 GPU上，每轮迭代 2 秒。
+由于网络原因，下载训练和测试npz包到本地进行加载
+训练模型完成后，保存模型
 '''
 
 from __future__ import print_function
@@ -20,6 +16,7 @@ from keras.optimizers import RMSprop
 from keras.utils import np_utils
 #加载本地数据
 import loadfile as ld
+
 
 # 模型参数
 batch_size = 128  # 批大小
@@ -73,3 +70,6 @@ history = model.fit(X_train, Y_train,
 score = model.evaluate(X_test, Y_test, verbose=0)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
+
+#保存训练好的模型
+model.save('my_model.h5')
